@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴</title>
+	<style>
+	*{padding: 0;margin: 0;list-style-type: none;overflow: hidden;}
+	body{
+		position: absolute;
+		width:100%;
+		height:100%;
+		background-image: url("img/bg.jpg");
+		background-position: center top;
+	}
+	header{
+		position: relative;
+		top:20%;
+		left: 10%;
+		width:1090px;
+		height: 429px;
+	}
+	header ul li{
+		position: absolute;
+		left:0;
+		top:0;
+		width: 789px;
+		height: 429px;	
+	}
+	header ul li p{
+	    position:absolute;
+		left:0;
+		top:0;
+	    width:16px;
+		height:429px;
+		padding:0 42px;
+		color:#fff;
+		background:rgba(0,0,0,0.5);			
+	}
+	header ul li:nth-child(1){
+        left:0px;
+	}
+	header ul li:nth-child(2){
+		left:789px;
+	}
+	header ul li:nth-child(3){
+		left:889px;
+	}
+	header ul li:nth-child(4){
+		left:990px;
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<ul>
+			<li><img src="img/1.jpg" alt="">
+			<p>我的个人拉萨之旅丨丨故事之城</p></li>
+			<li><img src="img/2.jpg" alt="">
+			<p>我的个人拉萨之旅丨丨故事之城</p></li>
+			<li><img src="img/3.jpg" alt="">
+			<p>我的个人拉萨之旅丨丨故事之城</p></li>
+			<li><img src="img/4.jpg" alt="">
+			<p>我的个人拉萨之旅丨丨故事之城</p></li>
+		</ul>
+	</header>
+	<script src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+	var olen=document.getElementsByTagName('li');
+	$("header ul li").hover(function(){
+		var oli=$(this).index();
+		for(var i=0;i<olen.length;i++){
+			if(oli>=i){
+				$("header ul li").eq(i).stop().animate({left:i*100+"px"},800);
+			}else{
+				$("header ul li").eq(i).stop().animate({left:789+(i-1)*100+"px"},800);
+			}
+		}
+		
+	});
+	
+	</script>
+</body>
+</html>
